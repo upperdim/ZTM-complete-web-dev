@@ -1,0 +1,2 @@
+npm init
+	creates packages.json file

@@ -1,0 +1,36 @@
+git clone
+git status
+git add
+git commit -m "commit message"
+git push
+----
+git status
+git add
+git commit -m "changed title"
+git push
+----
+git branch littlefeature
+git checkout littlefeature
+git status
+git add
+git commit
+git push
+----
+***
+git branch conf
+git checkout conf
+git status
+git add
+git commit
+-- before pushing i wanna make sure that i have the latest version so i wont change something or have conflict
+git checkout master
+git pull
+-
+git checkout conflict
+git merge master
+-- solve conflict here
+git status
+git add
+git commit -m "fixing merge issue"
+git push -- git push origin master
+

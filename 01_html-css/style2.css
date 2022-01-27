@@ -1,0 +1,38 @@
+h2 {
+    color: blue;
+}
+
+.boxmodel {
+    border: 5px solid red;
+    display: inline-block;
+
+    /* Create space inside */
+    /* order: top, right, bottom, left */
+    padding: 4px 20px 5px 20px;
+    /* padding-top, padding-right, padding-bottom, ... */
+    
+    /* Create space outside */
+    /*margin: 20px;*/
+    /*margin: 0px 20px 0px 20px;*/
+    /* Even shorter: top and bottom, right and left : */
+    margin: 0px 20px;
+
+    /* Change actual size of the content
+    Chrome > Dev Tools > Elements > Styles 
+    Box Model
+    */
+    width: 33px;
+    height: 55px;
+}
+
+p {
+    font-size: 20px;
+}
+
+span {
+    /* 5 times what it was */
+    font-size: 5em;
+
+    /* 2 times root element (<html> in this case, so it will pretty much stay the same) */
+    /* font-size: 2rem; */
+}

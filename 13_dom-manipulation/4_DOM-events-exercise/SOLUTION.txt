@@ -1,0 +1,19 @@
+Solution: DOM Events
+This exercise is intended to not have a solution video on purpose: Most of the time in your career as a developer, you will be working on things that won't have a clear answer. You want to practice this skill of working on using all of your available resources to get to an "it's working!" step without an answer immediately there for you whenever you get stuck.
+
+So with that said, once you feel like you have given it your all, only then, do I recommend you check out the below solutions created by fellow students. It's important to remember that there are many solutions to a problem so you may see things different than what you did.
+
+This will also exercise your muscle of looking at other people's code (everyone has their own style) and being able to understand the code.
+
+Have a look at the solutions and learn from other ways of doing things:
+
+Nick: https://github.com/NickPax/shopping-list
+Daniel: https://github.com/drood87/shoppingList
+Daniela: https://github.com/mojsovska/m...
+Kevin: https://github.com/ferkev/javascript
+Itamar: https://codepen.io/ItamarRosenblum/full/gzVMVp
+Marcel: https://codepen.io/bi7je/pen/OZKBgv
+Charles: https://codepen.io/anon/pen/Peaaxv
+Alex: https://github.com/AlexMcLean1...
+
+... and many more. You can attach your solution and see other students' solution files in the Q&A of this lecture!

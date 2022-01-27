@@ -1,0 +1,127 @@
+/*
+
+Selector {
+    Property: value;
+}
+
+*/
+
+/*
+
+* {
+    text-align: right;
+}
+
+*/
+
+body {
+    background-image: url(bg.jpg);
+    background-size: cover;
+}
+
+h2, p {
+    color: red;
+    color: #FF8800;
+    text-align: center;
+    border: 5px dashed purple;
+    border: 20px dashed rgba(255, 125, 0, 0.3);
+    cursor: pointer;
+}
+
+/*
+
+h2 p {
+    ...
+}
+
+would apply to all p's that are inside h2.
+example1: <h2> something <p>asd</p> something </h2>
+exmaple2: <h2> something <div> <p>asd</p> </div> something </h2>
+
+h2 > p {
+    ...
+}
+
+h2 should be directly parent of p, applies to example1 above but NOT to example2
+
+
+h2 + p {
+    ...
+}
+
+means: select a "p" elements that is exactly after an "h2"
+
+*/
+
+h3 {
+    color: red;
+    text-align: center;
+}
+
+/* activates only when you hover on the element with mouse */
+h3:hover {
+    color: red;
+    color: #FF8800;
+    text-align: center;
+    border: 5px dashed purple;
+    border: 20px dashed rgba(255, 125, 0, 0.3);
+    cursor: pointer;
+}
+
+p {
+    /* !important is not recommended. it will prevent further modifications
+    from overwriting this assignment */
+    color: pink !important; 
+}
+
+p {
+    color: green;
+}
+
+li {
+    list-style: square;
+    display: inline-block;
+}
+
+/* .webtext: last-child / first-child {
+only applies to the last or first child of the class */
+.webtext {
+    color: lightblue;
+    border-color: green;
+}
+
+.active {
+    color: red;
+}
+
+#div1 {
+    background: rgba(255, 0, 0, 0.3);
+}
+
+#div2 {
+    background: rgba(0, 255, 0, 0.3);
+}
+
+p {
+    /*text-decoration: underline;*/
+    text-transform: uppercase;
+    /*line-height: 50px;*/
+    /*font-style: italic;*/
+    /*font-weight: 100 to 900 or "bold"*/
+    /*font-size: 150%*/
+
+    /*If the laptop that opens the site doesnt have the 1st font, use the other*/
+    font-family: 'Ubuntu', sans-serif, "Times New Roman", Georgia; 
+}
+
+img {
+    float: left;
+}
+
+footer {
+    text-align: center;
+    color: orange;
+
+    /* make sure footer is at the bottom */
+    clear: both;
+}

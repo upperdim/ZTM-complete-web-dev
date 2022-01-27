@@ -1,0 +1,45 @@
+body {
+    /* get rid of browsers' own default margin */
+    margin: 0px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+h1 {
+    font-family: fantasy;
+    font-size: 3em;
+    border-bottom: 2px solid pink;
+    width: 400px;
+    /* will align inside 400px width, not entire page */
+    text-align: center;
+    border-right: 2px solid pink;
+
+    /* different browsers 
+    see https://www.w3schools.com/cssref/css3_browsersupport.asp
+
+    -moz-box-shadow: 4px 4px 5px #888888; // mozilla firefox
+    -ms-box-shadow: 4px 4px 5px #888888; // internet explorer
+    -webkit-box-shadow: 4px 4px 5px #888888; // safari
+    -o-box-shadow: 4px 4px 5px #888888; // opera
+    box-shadow: 4px 4px 5px #888888;
+
+    */
+
+    margin-top: 10px;
+}
+
+img {
+    width: 450px;
+    height: 300px;
+    margin: 10px;
+
+    transition: all 0.5s;
+}
+
+img:hover {
+    transform: scale(1.1);
+}
