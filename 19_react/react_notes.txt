@@ -1,0 +1,36 @@
+props: data that is passed from parent component to child components
+pure componenet / down component: only receivess a prop and outputs the same thing (pure function)
+state: data that can move from child to parent
+smart component: not a pure component, has a state. smart components has class syntax
+
+lifecycle methods (https://reactjs.org/docs/react-component.html): 
+	components have several sections:
+		mounting
+		updating
+		unmounting
+		error handling
+
+children: Component inside another components braces:
+	<Scroll>
+		<CardList robots={filteredRobots} />
+	</Scroll>
+
+components folder: UI components such as CardList, SearchBox, Scroll
+containers folder: smart components, components that have state in it, lifecycle hooks, class syntax
+
+npm run build: will build react app and minify etc. you have to run source code with `npm start`
+	but built project will run upon clicking "index.html"
+	*** for some reason it gets the paths wrong so you have to correct by hand. otherwise you will see blank screen
+
+updating:
+	after cloning an old repo for example `git clone <url>`
+	`npm install` to install dependencies and
+	`npm start` to make sure it works first
+	`npm audit fix` as it suggests for fixing
+	still shows vulnerabilities, because some of them are "breaking changes"
+	`npm audit` will give some idea
+	`npm update` will update package.json dependencies to max minor releases
+	look through the changes and `npm audit fix --force`
+	`npm audit` should show 0 vulnerabilities now
+	make sure the app still works with `npm start`
+	you can push to the repo now with `git push` etc.

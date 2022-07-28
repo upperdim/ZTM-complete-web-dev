@@ -1,0 +1,54 @@
+Client -> request -> ISP -> DNS
+DNS -> IP -> ISP -> Client
+
+
+Client -> request -> Server
+Server -> HTML/CSS/JS files -> Client
+
+
+Location of the server - CDN
+How many trips         - <script src="bundle.js"> (bundling sources)
+Size of files          - style.min.css (minifying files)
+
+
+[AJAX]
+Client -> fetch('/users') -> Server
+Server -> JSON -> Client
+
+
+Front end: HTML, CSS, JS
+Communication: HTTP, AJAX
+Backend: Node Server (Web Server), Node.js/Express.js (Web server technology), PostgreSQL/MongoDB (Database)
+
+
+Most basic servers:
+	LAMP stack i.e. Hostgator, www.funfunwebsite.com
+		Linux          // Filesystem: index.html, script.js, style.css, about.html
+		Apache server
+		MySQL
+		PHP
+
+	Nothing complex or nothing professional.
+	Old way of doing things.
+
+Servers are just computers. You can make your computer a server but you need a server software.
+Server software is like "if I get a request, send this file out".
+
+
+"Application server"
+	New stack
+
+	MERN
+		MongoDB / PostgreSQL
+		React
+		Node.js / Express.js
+
+
+Scale: Multiple servers in multiple regions (copy of each other)
+	Load balancer to load balance servers, redicrecting users accordingly.
+	Databases are synchronized so user using one server will see consistent content with a user from another server.
+
+Idea behind servers: 
+	Main goal is to make sure that when we make an HTTP request from the front end, 
+	we get a response back quick with the correct data. 
+	Making sure that front-end team receives data they expect.

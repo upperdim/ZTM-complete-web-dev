@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Register</title>
+    </head>
+    <body>
+        <a href="index.html">Go Back</a>
+        <h2>Register using GET</h2>
+
+        <div></div> <!-- Helps to categorize code -->
+        <span></span> <!-- Same, but 1 (same) line only -->
+
+        <!--Another method is "POST"-->
+        <!-- action="action.php" attribute is also widely used,
+             sends the post directly to a specific script -->
+        <form method="GET">
+            Name: <input type="text" name="name"> <br>
+            Surname: <input type="text" name="surname"> <br>
+            Email*: <input type="email" name="email" required> <br>
+            Website password: <input type="password" name="password" min="8"> (Min. 8 characters)<br>
+            Birthday: <input type="date" name="birthdate"> <br>
+            Gender: <br> 
+            <input type="radio" name="gender" value="male"> Male
+            <input type="radio" name="gender" value="female"> Female 
+            <input type="radio" name="gender" value="othergender"> Other<br>
+            Pets: <br>
+            <input type="checkbox" name="cat"> Cat(s) <br>
+            <input type="checkbox" name="dog"> Dog(s) <br>
+            <input type="checkbox" name="otherpet"> Other(s) <br>
+            Cars: <br>
+            <select name="cars">
+                <option value="volvo" value="volvo">Volvo</option>
+                <option value="audi" value="audi">Audi</option>
+                <option value="other" value="othercar">Other</option>
+            </select> <br>
+            <input type="submit" value="register"> 
+            <input type="reset">
+
+            <!-- "Query Strings"
+                
+                ? // Means a data is coming
+                name=fake // property=value
+                &surname=name
+                &email=its%40fake.com // url encoding, %40 means '@' char
+                &password=12345678
+                &birthdate=2020-12-23
+                &gender=on
+                &cat=on
+            
+            -->
+        </form>
+    </body>
+</html>

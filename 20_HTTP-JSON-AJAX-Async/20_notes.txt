@@ -1,0 +1,77 @@
+Client-server protocol: Requests are initiated by recepient (web browser).
+Request	: Clients message to server
+Response: Servers message back to client
+
+HTTP (Hypertext Transfer Protocol):
+	Words:
+		GET		: Gets an HTML from the server
+		POST	: Posts some data to the server
+		PUT		: Send some data to be updates that is already in the server
+		DELETE	: Delete some existing data in the server
+
+	HTTP has extended over the years to make requests about more than HTML like images, files etc.
+	or make requests about a section of a page to load on demand (called AJAX).
+
+	HTTP responses with status messages 1xx, 2xx, 3xx, 4xx, 5xx, ... and data like HTML
+
+	Server will access GET data through query strings and POST data through form data (body).
+	See "0_register_GET.html" and "1_register_POST.html" with browser F12 Network Payload. (vid 245)
+
+JSON (Javascript Object Notation):
+	A standard way of sending data to server or vice-versa. JSON is plain text in a notation.
+	JSON is a syntax fpr storing and exchanging data.
+
+	XML is similar to JSON. It is longer, has more characters, thus takes up more bandwidth and space than JSON. It's not as efficient as JSON. Still moderately used though.
+
+	`var obj = JSON.parse('{"name":"John", "age":30, "city":"New York"}');` to read JSON into JS object (parse).
+	`var myJSON = JSON.stringify(obj)` in order to convert your object into JSON text (string).
+
+	Originally, only data you could submit to the server was through the <form> tag in HTML.
+	It can do GET or POST request.
+	Now with JSON, you can grab contents of the <input> in a form and submit those with JSON instead of a form data.
+	You can now submit to the server whatever you want without it necessarily being a <form>, through AJAX.
+
+AJAX:
+	Up until now, everytime we wanted to do a request, server would send a page, thus making a page refresh.
+	Whenever you want to update a part of your page, you have to update the entire page. Everything has to reload, it's wasteful and poor UX.
+
+	Performing AJAX was a bit long (XMLHttpRequest object), jQuery was invented to make it easier. `fetch()` is used now though.
+
+Promise (JavaScrippt construct since ES6):
+	Good for asynchronous programming.
+
+	"A promise is an object that may produce a single value some time in the future. Either a resolved value, or a reason that it's not resolved (rejected)."
+
+	A variable that makes a call to somewhere on the internet and promises it will fetch the data as it loads from the source.
+	fetch(<url>) returns a promise for example.
+	we can access to promise values with <promise>.then() once they are ready.
+
+	A promise can have 3 states:
+		fulfullied (resolved)
+		rejected
+		pending
+
+	Before promises we had "callbacks". Callbacks formed a "pyramid of doom" with their layers of nested callback functions.
+
+Async Await:
+	Javascript ES8 feature.
+
+	Built on top of "promise"s.
+
+	Makes code easier to read. "Syntactic sugar".
+		Old style:
+			movePlayer(100, 'Left')
+				.then(() => movePlayer(400, 'Left'))
+				.then(() => movePlayer(10, 'Right'))
+				.then(() => movePlayer(330, 'Left'));
+		New style:
+			async function playerStart() {
+				await movePlayer(100, 'Left'); // pause
+				await movePlayer(400, 'Left'); // pause
+				await movePlayer(10, 'Right'); // pause
+				await movePlayer(330, 'Left'); // pause
+			}
+	
+	"You can use "await" keyword in front of any function that returns promise."
+	"Once the function is done, it moves to the next statement."
+
