@@ -1,0 +1,13 @@
+3 Types of modules
+------------------
+1) modules (files) we create and import like `const c = require('./script2.js')`
+
+2) modules that come already preinstalled with node like `const c = require('fs')` 
+	which lets you interact with the filesystem(read files etc.)
+	or `const c = require('http')` module which is used when building servers
+	(these don't require "./" in the path, obviously)
+
+3) something from NPM like `const c = require('nodemon')`
+	* nodemon is a package that keeps your script alive and run it again whenever
+		you make a change in the file. so that you don't need to re-run 
+		`node <your script>` command over and over again while developing.

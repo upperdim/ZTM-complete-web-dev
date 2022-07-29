@@ -22,3 +22,6 @@ globalThis:
 require() and import:
 	read `1_modules` and `2_modules_es_module_syntax` files' comments
 
+3 types of modules:
+	read 3_types_of_modules/types_of_modules.txt
+
