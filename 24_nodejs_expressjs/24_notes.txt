@@ -20,5 +20,5 @@ globalThis:
 	Even though globalThis has different properties in browser and node, we have a unified codebase.
 
 require() and import:
-	read `1_modules` files' comments
+	read `1_modules` and `2_modules_es_module_syntax` files' comments
 
