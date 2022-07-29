@@ -1,0 +1,24 @@
+Node.js:
+	Javascript engine just like browsers Javascript engine v8
+	Fast, popular for building servers
+	Choice for most web apps, real-time comm, chat apps
+
+	Can build robots too (Johnny-Five aka J5)
+
+	`node` gives you the node shell
+
+	there is no `window`
+	there is `global`
+	there is `process` which is the curring process of the node script
+
+globalThis:
+	ES2020 feature, points to window object (globalThis === window returns true)
+
+	Why do we need globalThis while we have window too? globalThis works outside of browser too.
+	ES2020 wanted to unify environments. globalThis === global returns true
+
+	Even though globalThis has different properties in browser and node, we have a unified codebase.
+
+require() and import:
+	read `1_modules` files' comments
+
