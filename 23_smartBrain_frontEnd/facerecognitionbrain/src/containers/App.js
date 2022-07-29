@@ -6,6 +6,7 @@ import ImageLinkForm from '../components/ImageLinkForm/ImageLinkForm'
 import Rank from '../components/Rank/Rank'
 import FaceRecognition from '../components/FaceRecognition/FaceRecognition'
 import Signin from '../components/Signin/Signin'
+import Register from '../components/Register/Register'
 import Particles from "react-tsparticles"
 import { loadFull } from "tsparticles"
 import Clarifai from 'clarifai'
@@ -147,6 +148,7 @@ class App extends React.Component {
         <Navigation onRouteChange={this.onRouteChange} />
         {
           this.state.route === 'signin' ? <Signin onRouteChange={this.onRouteChange}/>
+          : this.state.route === 'register' ? <Register onRouteChange={this.onRouteChange} />
           : <div>
               <Logo />
               <Rank />
