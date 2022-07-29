@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Signin = () => {
+const Signin = (props) => {
 	return (
 		<article className="br3 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
 			<main className="pa4 black-80">
@@ -17,7 +17,17 @@ const Signin = () => {
 					</div>
 					</fieldset>
 					<div className="">
-					<input className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Sign in" />
+					<input 
+						// We don't immidately calling onRouteChange('home')
+						// because we want to call it after this has been rendered
+						// that's why we use an arrow function such that
+						// onROuteChange will only be called when the user clicks on it
+						// ??
+						onClick={() => props.onRouteChange('home')}
+						className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
+						type="submit" 
+						value="Sign in" 
+					/>
 					</div>
 					<div className="lh-copy mt3">
 					<a href="#0" className="f6 link dim black db">Register</a>

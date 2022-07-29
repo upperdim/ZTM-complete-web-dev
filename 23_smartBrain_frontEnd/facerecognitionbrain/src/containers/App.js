@@ -97,10 +97,10 @@ class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      input: '',    // Current input the URL input box
-      imageUrl: '', // URL of the image to be processed by the AI API
-      box: {},      // Face boundary box in the image
-      route: ''     // Keeps track of where we are in the page
+      input: '',      // Current input the URL input box
+      imageUrl: '',   // URL of the image to be processed by the AI API
+      box: {},        // Face boundary box in the image
+      route: 'signin' // Keeps track of where we are in the page
     }
   }
 
@@ -133,16 +133,27 @@ class App extends React.Component {
       .catch(err => console.log(err))
   }
 
+  // This function will be attached to buttons onClick handler
+  // So that user can be redirected to the home page upon signing in etc.
+  onRouteChange = (newRoute) => {
+    this.setState({route: newRoute})
+  }
+
   render() {
+
     return (
       <div className='App'>
         <Particles className='Particles' init={particlesInit} loaded={particlesLoaded} options={particlesOptions}	/>
-        <Navigation />
-        <Signin />
-        <Logo />
-        <Rank />
-        <ImageLinkForm onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit} />
-        <FaceRecognition box={this.state.box} imageUrl={this.state.imageUrl} />
+        <Navigation onRouteChange={this.onRouteChange} />
+        {
+          this.state.route === 'signin' ? <Signin onRouteChange={this.onRouteChange}/>
+          : <div>
+              <Logo />
+              <Rank />
+              <ImageLinkForm onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit} />
+              <FaceRecognition box={this.state.box} imageUrl={this.state.imageUrl} />
+            </div>
+        }
       </div>
     )
   }
