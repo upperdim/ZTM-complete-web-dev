@@ -28,3 +28,6 @@ require() and import:
 express.js:
 	Most used js framework for server programming.
 	Has great guide and documentation.
+
+express middleware:
+	will modify the incoming request before it is processed by its function `app.use(req, res, next) => {...}`
