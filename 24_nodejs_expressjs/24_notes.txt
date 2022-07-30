@@ -31,3 +31,28 @@ express.js:
 
 express middleware:
 	will modify the incoming request before it is processed by its function `app.use(req, res, next) => {...}`
+
+RESTful API:
+	REST API defines set of funcitons that developers can perform requests and receive responses via HTTP protocol such as GET POST DELETE PUT.
+
+	This is set of rules for people to follow so systems are compatible.
+
+	Architectural style.
+
+	GET to receive a resource
+	PUT to change the state or update a resource
+	POST that creates a resource
+	DELETE to remove a resources
+
+	/profile -> if GET request, we will get a profile. if POST request, we will create a profile. if PUT, we update a profile.
+	Think of above URL like a noun and HTTP request is the verb.
+
+	REST APIs are "stateless".
+	Meaning calls can be made independently of one another.
+	Each call contains enough data to complete itself successfully.
+
+	Server doesn't have to memorise things. Each call contains enough information that tasks can be completed regardless of who the caller is.
+
+	
+
+
