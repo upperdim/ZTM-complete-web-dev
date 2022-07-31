@@ -1,0 +1,13 @@
+Figure out what functionality you might want and test it with Postman.
+
+/                --> Root route, res = this is working
+/signin          --> POST respond with success/fail
+/register        --> POST respond with new user object
+/profile/:userId --> GET  respond with user
+/image           --> PUT  respond with updated user object (updates the uploaded photo count in order to determine rank)
+
+
+
+
+
+res.json('signin') // this func is like `.send()` but in json format
