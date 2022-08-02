@@ -11,3 +11,17 @@ Figure out what functionality you might want and test it with Postman.
 
 
 res.json('signin') // this func is like `.send()` but in json format
+
+
+
+
+* Always send sensitive information like passwords from frontend to the backend via HTTPs in POST body.
+	POST requests are never cached
+	POST request will not remain in the browser history
+	No restriction on data length
+* Store hashes of the passwords.
+
+
+> Use slow hashing algorithms (~100ms). It won't bother user so much (fast enough for the user), 
+  but hackers can't brute force with this algorithm. (slow enough to brute force).
+  
