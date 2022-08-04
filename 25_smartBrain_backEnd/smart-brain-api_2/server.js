@@ -1,6 +1,7 @@
 // Below is a highly insecure server and is for educational purposes only!
 const express = require('express')
 const bcrypt = require('bcrypt-nodejs') // not the best but works on all OS'es so educational purposes only
+const cors = require('cors')
 
 const app = express()
 
@@ -32,7 +33,8 @@ const database = {
 	]
 }
 
-app.use(express.json()) // for parsing JSON request bodies 
+app.use(express.json()) // for parsing JSON request bodies
+app.use(cors()) // browser will give error if we won't use this (security related)
 
 app.get('/', (req, res) => {
 	res.send(database.users)
