@@ -102,8 +102,27 @@ class App extends React.Component {
       imageUrl: '',    // URL of the image to be processed by the AI API
       box: {},         // Face boundary box in the image
       route: 'signin', // Keeps track of where we are in the page
-      isSignedIn: false
+      isSignedIn: false,
+      user: {
+        id: '',
+        name: '',
+        email: '',
+        entries: 0,
+        joined: ''
+      }
     }
+  }
+
+  // Will be used after registering. Server sends back the user info with JSON upon successful register.
+  // This function will take that user info and load it into our client App
+  loadUser = (userData) => {
+    this.setState({user: {
+      id: userData.id,
+      name: userData.name,
+      email: userData.email,
+      entries: userData.entries,
+      joined: userData.joined
+    }})
   }
 
   calculateFaceLocation = (data) => {
@@ -162,7 +181,7 @@ class App extends React.Component {
             </div>
           : this.state.route === 'signin' 
             ? <Signin onRouteChange={this.onRouteChange}/>
-            : <Register onRouteChange={this.onRouteChange} />
+            : <Register loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
         }
       </div>
     )
