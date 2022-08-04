@@ -25,3 +25,13 @@ res.json('signin') // this func is like `.send()` but in json format
 > Use slow hashing algorithms (~100ms). It won't bother user so much (fast enough for the user), 
   but hackers can't brute force with this algorithm. (slow enough to brute force).
   
+
+
+
+CORS:
+	if website A has a data that website B wants to access, 
+	this type of request traditionally wouldn't be allowed under the browser's same origin policy aka same URI scheme. 
+		( https://en.wikipedia.org/wiki/Same-origin_policy )
+
+	However, by supporting CORS requests, website A can allow website C to access the data.
+		( https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS )

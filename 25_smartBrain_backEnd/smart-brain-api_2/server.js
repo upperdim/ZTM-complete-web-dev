@@ -34,7 +34,7 @@ const database = {
 }
 
 app.use(express.json()) // for parsing JSON request bodies
-app.use(cors()) // browser will give error if we won't use this (security related)
+app.use(cors()) // browser will give error if we won't use this (security related). Read 25_notes.txt
 
 app.get('/', (req, res) => {
 	res.send(database.users)
