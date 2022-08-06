@@ -1,0 +1,108 @@
+DBMS: Database Management System
+
+Example databases (popular): PostgreSQL (Relational), MongoDB
+
+Relational Databases:
+    Similar, follow same standard format.
+
+    Table contains columns=attributes and rows=entrys
+
+    Relation between tables is called schema
+
+    Schema should be defined before information can be added
+
+    users table: username ---> tweets table: username
+        then, username in the tweets table is the foreign key of the username in the users table
+
+    users table: username ---> following table: from_user
+        then, from_user in following table is foreign key of username in the users table
+
+    id or full_name identifies each row, they are called primary key
+
+    examples: Oracle, PostgreSQL, SQLite, MySQL, ...
+
+    All relational databases use SQL (structured query language)
+
+
+Non Relational Databases (NoSQL):
+    Examples: redis, riak, cassandra, couchDB, mongoDB, apache hbase, hypertable
+
+    Allows to build an app without having to define a schema first unlike relational databases.
+
+    If your data requirements are not clear or you have huge amount of unstructured data, 
+        you may not have the luxury of relational database with a clearly defined schema.
+
+    
+Document Oriented:
+    MongoDB.
+
+    It stores information as documents.
+
+
+MongoDB:
+    Backend-database communication is done with MongoDB query language. This is equavilent of SQL for relational databases.
+
+
+
+PostgreSQL:
+    `psql -U postgres` for running it with the correct user on Windows.
+    `createdb -U postgres <database name>`
+    `psql -U postgres <database name>`
+    `CREATE TABLE users (id SERIAL PRIMARY KEY, name VARCHAR(255), email VARCHAR(255));`
+    `\dt` or `\d` stands for "display tables".
+    `\q` exists from the SQL shell.
+    `INSERT INTO users (name, email) VALUES ('john', 'john@doe.com');`
+    `SELECT * FROM users;`
+
+    CREATE TABLE users (name text, age smallint, birthdate date);
+    INSERT INTO users (name, age, birthdate) VALUES ('Andrei', 31, '1930-01-25');
+    SELECT name, age, birthdate FROM users; 
+    SELECT * FROM users;
+    ALTER TABLE users ADD score smallint; -- adds a column called score to table users
+
+    UPDATE table_name
+        SET some_column = some_value
+        WHERE some_column = some_value;
+
+    UPDATE users SET score = 50 WHERE name = 'Andrei';
+    UPDATE users SET score = 100 WHERE name = 'John' OR name = 'Sally';
+
+    SELECT * FROM users WHERE name LIKE 'A%'; -- `%` means anything, case matters
+    SELECT * FROM users WHERE name LIKE '%y';
+
+    SELECT * FROM users ORDER BY score DESC; -- descending order
+    SELECT * FROM users ORDER BY score ASC; -- ascending order
+
+    SELECT AVG(score) FROM users; -- functions!
+    SELECT SUM(age) FROM users;
+    SELECT COUNT(name) FROM users;
+
+    `serial` is an auto incremented integer value
+
+Joining tables:
+    Most important concept of relational databases is schemas, having tables concerned about storing 
+    info specific to them such as users, tweets, following etc. and connecting them via primary and foreign key.
+
+    We don't want 1 massive database with tons of columns, it's not efficient and hard to manage.
+    We want focused small tables concerned with their minimal needed information. If something else is needed we join tables to obtain information.
+
+    CREATE TABLE login (
+        ID serial NOT NULL PRIMARY KEY,
+        secret VARCHAR (100) NOT NULL,
+        name text UNIQUE NOT NULL
+    );
+
+    * it will create a file `login_id_seq`. Because we made `id` a primary key, this file is created automatically.
+
+    INSERT INTO login (secret, name) VALUES ('abc', 'Andrei'); 
+    INSERT INTO login (secret, name) VALUES ('xyz', 'Sally'); 
+    INSERT INTO login (secret, name) VALUES ('lol', 'John'); 
+
+
+    SELECT * FROM users JOIN login ON users.name = login.name;
+
+PostgreSQL cont'd:
+    DELETE FROM users WHERE name='Sally';
+    DROP TABLE login; 
+    DROP TABLE users;
+    
