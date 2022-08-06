@@ -92,7 +92,8 @@ app.get('/profile/:id', (req, res) => {
 	res.status(404).json('no such user')
 })
 
-app.post('/image', (req, res) => {
+// PUT is for updating
+app.put('/image', (req, res) => {
 	const { id } = req.body
 	database.users.forEach(user => {
 		if (user.id === id) {

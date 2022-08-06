@@ -146,11 +146,30 @@ class App extends React.Component {
     this.setState({input: event.target.value})
   }
 
-  onButtonSubmit = () => {
+  onPictureSubmit = () => {
     this.setState({imageUrl: this.state.input})
     // Using `this.state.imageUrl` would give an error because of the way setState() works. Hard to debug...
     app.models.predict(Clarifai.FACE_DETECT_MODEL, this.state.input)
-      .then(response => this.displayFaceBox(this.calculateFaceLocation(response)))
+      .then(response => {
+        if (response) {
+          // We send PUT request with user id to `/image` route, 
+          // it increments the users' entry count by 1 and returns back incremented entry count
+          fetch('http://localhost:3000/image', {
+            method: 'put', 
+            headers: {'Content-Type': 'application/json'}, 
+            body: JSON.stringify({
+              id: this.state.user.id
+            })
+          })
+            .then(response => response.json())
+            // Data of the response is the entry count. `/images` route returns back the users' incremented entry count as said above
+            .then(entryCount => {
+              // Updates 1 field of `user` object while maintaining other fields
+              this.setState(Object.assign(this.state.user, { entries: entryCount }))
+            })
+        }
+        this.displayFaceBox(this.calculateFaceLocation(response))
+      })
       .catch(err => console.log(err))
   }
 
@@ -176,7 +195,7 @@ class App extends React.Component {
           ? <div>
               <Logo />
               <Rank name={this.state.user.name} entries={this.state.user.entries} />
-              <ImageLinkForm onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit} />
+              <ImageLinkForm onInputChange={this.onInputChange} onPictureSubmit={this.onPictureSubmit} />
               <FaceRecognition box={this.state.box} imageUrl={this.state.imageUrl} />
             </div>
           : this.state.route === 'signin' 
