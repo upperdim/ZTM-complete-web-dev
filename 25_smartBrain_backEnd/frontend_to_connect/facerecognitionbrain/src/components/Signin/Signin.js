@@ -30,8 +30,10 @@ class Signin extends React.Component {
 			})
 		})
 			.then(response => response.json())
-			.then(data => {
-				if (data === 'success') {
+			.then(user => {
+				// Does the user exist? Did we receive a user with a property of id?
+				if (user.id) {
+					this.props.loadUser(user)
 					this.props.onRouteChange('home')
 				}
 				// TODO: display an error message if it fails
