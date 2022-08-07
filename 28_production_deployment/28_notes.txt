@@ -29,3 +29,6 @@ API Key Handling:
     Our API key was in the frontend, so it was sent over to Clarifai in a request header and could be obtained.
     This is a free API, but if we used a paid one, people could see this API, use it extensively to cost us money.
     We have to move our API key to our backend.
+
+    frontend ---image url-----> backend ---image url-----> API
+    frontend <--data from API-- backend <--data from API-- API
