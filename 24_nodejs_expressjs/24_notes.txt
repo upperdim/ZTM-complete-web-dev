@@ -52,7 +52,3 @@ RESTful API:
 	Each call contains enough data to complete itself successfully.
 
 	Server doesn't have to memorise things. Each call contains enough information that tasks can be completed regardless of who the caller is.
-
-	
-
-
