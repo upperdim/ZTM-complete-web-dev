@@ -9,7 +9,6 @@ import Signin from '../components/Signin/Signin'
 import Register from '../components/Register/Register'
 import Particles from "react-tsparticles"
 import { loadFull } from "tsparticles"
-import clarifaiApiKey from './clarifaiApiKey'
 
 const particlesInit = async (main) => {
   // console.log(main);
