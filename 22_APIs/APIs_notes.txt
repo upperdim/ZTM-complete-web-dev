@@ -8,5 +8,3 @@ API (Application Programming Interface):
 	Like a waiter. You sit at the table, order a meal from the waiter and they bring you.
 
 	Ports like HDMI on the back of a TV is like an API too.
-
-	
