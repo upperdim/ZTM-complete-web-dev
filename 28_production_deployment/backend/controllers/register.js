@@ -1,6 +1,10 @@
 const handleRegister = (req, res, db, bcrypt) => {
 	// Create a user with incoming info
 	const { email, name, password } = req.body
+	// Validation
+	if (!email || !name || !password) {
+		return res.status(400).json('incorrect form submission')
+	}
 	const hash = bcrypt.hashSync(password)
 	// Chain 2 db operations together so if one fails, other one should too.
 	// This is for avoiding inconsistencies, read 27_notes.txt

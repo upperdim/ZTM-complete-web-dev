@@ -14,3 +14,13 @@ Frontend, backend and database servers will be different computers.
 
 Controller:
     A source file that handles whenever an endpoint was requested.
+
+
+Security review:
+    Validation:
+        Right now we can leave every field blank in the registration page and register as a blank user.
+        We don't validate the user input right now.
+
+        1) Frontend should validate the input
+        2) SERVER NEVER TRUSTS ANYTHING FROM THE FRONTEND, performs its own validation too
+        

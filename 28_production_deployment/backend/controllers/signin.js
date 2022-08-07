@@ -3,7 +3,12 @@
 //     "email": "john@gmail.com",
 //     "password": "cookies"
 // }
-const handleSignin = (req, res, db, bcrypt) => (req, res) => {
+const handleSignin = (db, bcrypt) => (req, res) => {
+	const { email, password } = req.body
+	// Validation
+	if (!email || !password) {
+		return res.status(400).json('incorrect form submission')
+	}
 	db.select('email', 'hash').from('login')
 		.where('email', '=', req.body.email)
 		.then(data => {
