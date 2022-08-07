@@ -1,0 +1,11 @@
+so far:
+    frontend: html = text; css = style; js = logic, behaviours
+    backend: node.js server = interacts with the frontend
+    database: postgresql = persistent information (data)
+
+We could put our static page onto github pages. (html, css, js)
+But now we have server code and db code.
+We will use Heroku to deploy. (It's like AWS, Google Cloud, Microsoft Azure, Digital Ocean giving you a computer)
+You will normally have your server code on a dedicated computer (server).
+We will put frontend and backend to different Heroku computers & create a database too.
+You could have your frontend or database on AWS or GitHub pages as well for example.
