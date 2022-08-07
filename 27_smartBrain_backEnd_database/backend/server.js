@@ -55,25 +55,27 @@ app.get('/', (req, res) => {
 	res.send(database.users)
 })
 
+// Imagine we're getting this request from front-end
+// {
+//     "email": "john@gmail.com",
+//     "password": "cookies"
+// }
 app.post('/signin', (req, res) => {
-	// Imagine we're getting this request from front-end
-	// {
-	//     "email": "john@gmail.com",
-	//     "password": "cookies"
-	// }
-	// Load hash from your password database
-	bcrypt.compare("apples", '$2a$10$G/aCQara1STpSxhQdViqf.dLG/AGoFQPZ1Ucye90Rj/cL.gj6Mkeq', function(err, res) {
-		console.log('first guess', res)
-	})
-	bcrypt.compare("veggies", '$2a$10$G/aCQara1STpSxhQdViqf.dLG/AGoFQPZ1Ucye90Rj/cL.gj6Mkeq', function(err, res) {
-		console.log('second guess', res)
-	})
-	if (req.body.email === database.users[0].email
-		&& req.body.password === database.users[0].password) {
-		res.json(database.users[0])
-	} else {
-		res.status(400).json('error logging in')
-	}
+	db.select('email', 'hash').from('login')
+		.where('email', '=', req.body.email)
+		.then(data => {
+			const isValid = bcrypt.compareSync(req.body.password, data[0].hash)
+			if (isValid) {
+				// Return below so that "upper db.select() knows about it", works without it regardless...
+				return db.select('*').from('users')
+					.where('email', '=', req.body.email)
+					.then(user => res.json(user[0]))
+					.catch(err => res.status(400).json('unable to get user'))
+			} else {
+				res.status(400).json('wrong credentials')
+			}
+		})
+		.catch(err => res.status(400).json('wrong credentials'))
 })
 
 app.post('/register', (req, res) => {
