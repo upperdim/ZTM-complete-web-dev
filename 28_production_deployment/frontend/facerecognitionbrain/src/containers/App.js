@@ -94,23 +94,25 @@ const particlesOptions = {
   detectRetina: true,
 }
 
+const initialState = {
+  input: '',       // Current input the URL input box
+  imageUrl: '',    // URL of the image to be processed by the AI API
+  box: {},         // Face boundary box in the image
+  route: 'signin', // Keeps track of where we are in the page
+  isSignedIn: false,
+  user: {
+    id: '',
+    name: '',
+    email: '',
+    entries: 0,
+    joined: ''
+  }
+}
+
 class App extends React.Component {
   constructor() {
     super()
-    this.state = {
-      input: '',       // Current input the URL input box
-      imageUrl: '',    // URL of the image to be processed by the AI API
-      box: {},         // Face boundary box in the image
-      route: 'signin', // Keeps track of where we are in the page
-      isSignedIn: false,
-      user: {
-        id: '',
-        name: '',
-        email: '',
-        entries: 0,
-        joined: ''
-      }
-    }
+    this.state = initialState
   }
 
   // Will be used after registering. Server sends back the user info with JSON upon successful register.
@@ -177,7 +179,7 @@ class App extends React.Component {
   // So that user can be redirected to the home page upon signing in etc.
   onRouteChange = (newRoute) => {
     if (newRoute === 'signout')
-      this.setState({isSignedIn: false})
+      this.setState(initialState)
     else if (newRoute === 'home')
       this.setState({isSignedIn: true})
 
