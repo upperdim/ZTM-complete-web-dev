@@ -23,4 +23,9 @@ Security review:
 
         1) Frontend should validate the input
         2) SERVER NEVER TRUSTS ANYTHING FROM THE FRONTEND, performs its own validation too
-        
+
+
+API Key Handling:
+    Our API key was in the frontend, so it was sent over to Clarifai in a request header and could be obtained.
+    This is a free API, but if we used a paid one, people could see this API, use it extensively to cost us money.
+    We have to move our API key to our backend.

@@ -9,12 +9,7 @@ import Signin from '../components/Signin/Signin'
 import Register from '../components/Register/Register'
 import Particles from "react-tsparticles"
 import { loadFull } from "tsparticles"
-import Clarifai from 'clarifai'
 import clarifaiApiKey from './clarifaiApiKey'
-
-const app = new Clarifai.App({
-  apiKey: clarifaiApiKey
-})
 
 const particlesInit = async (main) => {
   // console.log(main);
@@ -150,8 +145,14 @@ class App extends React.Component {
 
   onPictureSubmit = () => {
     this.setState({imageUrl: this.state.input})
-    // Using `this.state.imageUrl` would give an error because of the way setState() works. Hard to debug...
-    app.models.predict(Clarifai.FACE_DETECT_MODEL, this.state.input)
+    fetch('http://localhost:3000/imageurl', {
+      method: 'post', 
+      headers: {'Content-Type': 'application/json'}, 
+      body: JSON.stringify({
+        imageUrl: this.state.input
+      })
+    })
+      .then(response => response.json())
       .then(response => {
         if (response) {
           // We send PUT request with user id to `/image` route, 
