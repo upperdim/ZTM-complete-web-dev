@@ -14,3 +14,10 @@ CREATE TABLE login (
     email text UNIQUE NOT NULL
 );
 
+Transactions:
+    While they are in the same transaction, if one of 2 operations in 2 separate
+        databases fail, the other one will fail too so that we won't have 
+        inconsistencies between databases.
+
+    For example we might store the profile info and login info of a user in 
+        seperate tables. When registering, if one fails, other should fail too.
