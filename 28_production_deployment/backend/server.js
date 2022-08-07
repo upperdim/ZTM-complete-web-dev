@@ -26,7 +26,10 @@ app.use(express.json())
 app.use(cors())
 
 app.get('/', (req, res) => { res.send('success') })
-app.post('/signin', (req, res) => { signin.handleSignin(req, res, db, bcrypt) })
+// Below will call the first arrow function first. Which returns another function
+// that is (req, res) => {...}. So that we can use it like this neatly.
+// (req, res) that comes into 2nd parameter of `post()` will automatically be used like so.
+app.post('/signin', signin.handleSignin(db, bcrypt))
 // Below is a dependency injection. We're passing dependencies of the function into it.
 app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) })
 app.get('/profile/:id', (req, res) => { profile.handleProfileGet(req, res, db) })

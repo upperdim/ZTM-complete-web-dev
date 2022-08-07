@@ -3,7 +3,7 @@
 //     "email": "john@gmail.com",
 //     "password": "cookies"
 // }
-const handleSignin = (req, res, db, bcrypt) => {
+const handleSignin = (req, res, db, bcrypt) => (req, res) => {
 	db.select('email', 'hash').from('login')
 		.where('email', '=', req.body.email)
 		.then(data => {
