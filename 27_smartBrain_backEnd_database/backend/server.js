@@ -120,19 +120,15 @@ app.get('/profile/:id', (req, res) => {
 // PUT is for updating
 app.put('/image', (req, res) => {
 	const { id } = req.body
-	database.users.forEach(user => {
-		if (user.id === id) {
-			user.entries++
-			return res.json(user.entries)
-		}
-	})
-	res.status(404).json('no such user')
+	db('users')
+		.where('id', '=', id)
+		.increment('entries', 1)
+		.returning('entries')
+		.then(entries => {
+			res.json(entries[0].entries)
+		})
+		.catch(err => res.status(400).json('unable to get entries'))
 })
-
-
-
-
-
 
 app.listen(3000, () => {
 	// This func runs just after it starts listening
