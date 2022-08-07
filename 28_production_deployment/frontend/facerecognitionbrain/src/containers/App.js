@@ -169,6 +169,7 @@ class App extends React.Component {
               // Updates 1 field of `user` object while maintaining other fields
               this.setState(Object.assign(this.state.user, { entries: entryCount }))
             })
+            .catch(console.log)
         }
         this.displayFaceBox(this.calculateFaceLocation(response))
       })

@@ -9,3 +9,4 @@ We will use Heroku to deploy. (It's like AWS, Google Cloud, Microsoft Azure, Dig
 You will normally have your server code on a dedicated computer (server).
 We will put frontend and backend to different Heroku computers & create a database too.
 You could have your frontend or database on AWS or GitHub pages as well for example.
+Frontend, backend and database servers will be different computers.
