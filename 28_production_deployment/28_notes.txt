@@ -32,3 +32,7 @@ API Key Handling:
 
     frontend ---image url-----> backend ---image url-----> API
     frontend <--data from API-- backend <--data from API-- API
+
+
+None of the components should trust anything else on security.
+All components should have all their security measures and not trust any other sources.
