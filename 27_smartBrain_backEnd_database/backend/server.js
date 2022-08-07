@@ -20,39 +20,11 @@ const db = knex({
 
 const app = express()
 
-const database = {
-	users: [
-		{
-			id: '123',
-			name: 'John',
-			email: 'john@gmail.com',
-			password: 'cookies',
-			entries: 0,
-			joined: new Date()
-		},
-		{
-			id: '124',
-			name: 'Sally',
-			email: 'sally@gmail.com',
-			password: 'bananas',
-			entries: 0,
-			joined: new Date()
-		}
-	],
-	login: [
-		{
-			id: '789',
-			hash: '',
-			email: 'john@gmail.com'
-		}
-	]
-}
-
 app.use(express.json()) // for parsing JSON request bodies
 app.use(cors()) // browser will give error if we won't use this (security related). Read 25_notes.txt
 
 app.get('/', (req, res) => {
-	res.send(database.users)
+	res.send('success')
 })
 
 // Imagine we're getting this request from front-end
