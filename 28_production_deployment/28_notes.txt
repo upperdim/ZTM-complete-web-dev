@@ -36,3 +36,10 @@ API Key Handling:
 
 None of the components should trust anything else on security.
 All components should have all their security measures and not trust any other sources.
+
+
+Environment Variables:
+    Let's say in `server.js`, you have the expression `process.env.PORT`.
+    `PORT` is the environment variable.
+    In bash, you can give environment variable to the program with `PORT=3000 node server.js`.
+    In fish, `env PORT='hello' node server.js`.
